@@ -171,7 +171,7 @@ void LCD_status_menu() {
     lcd.setCursor(10, 0);  lcd.print('Y');  LCD_print_float(posy);
     lcd.setCursor( 0, 1);  lcd.print('Z');  LCD_print_float(posz);
     lcd.setCursor(10, 1);  lcd.print('F');  LCD_print_float(feed_rate);
-    lcd.setCursor( 0, 2);  lcd.print(F("Makelangelo.com #"));  lcd.print(robot_uid);
+    lcd.setCursor( 0, 2);  lcd.print(F("Makelangelo #"));  lcd.print(robot_uid);
     lcd.setCursor( 0, 3);  LCD_print_long(speed_adjust);  lcd.print(F("% "));
     if(sd_printing_now==true/* && sd_printing_paused==false*/) {
       LCD_print_float(sd_percent_complete);
@@ -219,12 +219,12 @@ void LCD_stop() {
 }
 
 void LCD_disable_motors() {
-  motor_disable();
+  motor_disengage();
   MENU_GOTO(LCD_main_menu);
 }
 
 void LCD_enable_motors() {
-  motor_enable();
+  motor_engage();
   MENU_GOTO(LCD_main_menu);
 }
 
@@ -336,18 +336,19 @@ void LCD_menu() {}
 #endif  // HAS_LCD
 
 /**
- * This file is part of DrawbotGUI.
+ * This file is part of makelangelo-firmware.
  *
- * DrawbotGUI is free software: you can redistribute it and/or modify
+ * makelangelo-firmware is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * DrawbotGUI is distributed in the hope that it will be useful,
+ * makelangelo-firmware is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with DrawbotGUI.  If not, see <http://www.gnu.org/licenses/>.
+ * along with makelangelo-firmware.  If not, see <http://www.gnu.org/licenses/>.
  */
+ 
